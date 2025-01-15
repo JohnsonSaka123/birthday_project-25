@@ -1,0 +1,43 @@
+body {
+  font-family: "Nunito", serif;
+  text-align: center;
+  background-color: #fef8e6;
+  color: #333;
+}
+
+header {
+  background: #ffcccb;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+section {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background: #fff3e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.photos img {
+  width: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  animation: fadeInZoom 1s ease-in-out;
+}
+.photos img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  margin-left:  20px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
