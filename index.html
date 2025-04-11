@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, Joycelyn! 🎉</title>
+  <title>Happy Birthday, Mina! 🎉</title>
   <link rel="stylesheet" href="./index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,9 @@
     <header>
       <h1>🎉 Happy Birthday, Mina🎂</h1>
       <p>Wishing you a day filled with joy and happiness!</p>
+      <button id="playMusic" class="music-button">
+        <i class="fas fa-music"></i> Play Birthday Song
+      </button>
     </header>
 
     <main>
@@ -25,7 +28,7 @@
         
         <div class="message">
           <h2>💝 A Special Message</h2>
-          <p>Dear Joycelyn,</p>
+          <p>Dear Mina,</p>
           <p>On this special day, I want to celebrate the amazing person you are! Your kindness, strength, and beautiful spirit light up every room you enter. You bring so much joy to everyone around you, and today is all about celebrating YOU!</p>
           <p>May this year bring you endless happiness, success in all your endeavors, and beautiful moments that turn into cherished memories. You deserve all the love and happiness in the world!</p>
           <p>Wishing you a birthday as wonderful as you are! 🎈</p>
@@ -37,5 +40,33 @@
       <p>Made with <i class="fas fa-heart"></i> by Walker Jnr</p>
     </footer>
   </div>
+
+  <audio id="birthdaySong" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('birthdaySong');
+      const playButton = document.getElementById('playMusic');
+      
+      // Try to autoplay
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Autoplay failed, show the play button
+          playButton.style.display = 'block';
+        });
+      }
+      
+      // Play button click handler
+      playButton.addEventListener('click', function() {
+        audio.play();
+        playButton.style.display = 'none';
+      });
+    });
+  </script>
 </body>
 </html>
