@@ -1,43 +1,161 @@
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #FFE66D;
+  --text-color: #2C3E50;
+  --background-color: #F7F9FC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Nunito", serif;
-  text-align: center;
-  background-color: #fef8e6;
-  color: #333;
+  font-family: "Nunito", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
 }
 
 header {
-  background: #ffcccb;
-  padding: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  animation: fadeInDown 1s ease-out;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out;
+}
+
+.birthday-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.photo-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.main-photo:hover {
+  transform: scale(1.05);
+}
+
+.message {
+  padding: 30px;
+}
+
+.message h2 {
+  color: var(--primary-color);
   margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 
-section {
-  margin: 20px auto;
+.message p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
   padding: 20px;
-  max-width: 600px;
-  background: #fff3e0;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
-.photos img {
-  width: 100px;
-  margin: 10px;
-  border-radius: 5px;
-  animation: fadeInZoom 1s ease-in-out;
-}
-.photos img:hover {
-  transform: scale(1.2);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  margin-left:  20px;
-  margin-right: 10px;
+footer i {
+  color: var(--primary-color);
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .photo-container {
+    height: 300px;
+  }
+  
+  .message {
+    padding: 20px;
+  }
+  
+  .message h2 {
+    font-size: 1.5rem;
+  }
+  
+  .message p {
+    font-size: 1rem;
+  }
 }
