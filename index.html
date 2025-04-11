@@ -42,7 +42,7 @@
   </div>
 
   <audio id="birthdaySong" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="./Moses_Bliss_-_E_Dey_Flow_CeeNaija.com_.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
@@ -51,20 +51,29 @@
       const audio = document.getElementById('birthdaySong');
       const playButton = document.getElementById('playMusic');
       
-      // Try to autoplay
-      const playPromise = audio.play();
+      // Show the play button initially
+      playButton.style.display = 'block';
       
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          // Autoplay failed, show the play button
-          playButton.style.display = 'block';
-        });
-      }
+      // Add error handling for audio loading
+      audio.addEventListener('error', function(e) {
+        console.error('Error loading audio:', e);
+        playButton.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error loading song';
+      });
       
       // Play button click handler
       playButton.addEventListener('click', function() {
-        audio.play();
-        playButton.style.display = 'none';
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            // Audio started playing
+            playButton.style.display = 'none';
+          })
+          .catch(error => {
+            console.error('Playback failed:', error);
+            playButton.innerHTML = '<i class="fas fa-exclamation-circle"></i> Click to try again';
+          });
+        }
       });
     });
   </script>
